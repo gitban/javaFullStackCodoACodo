@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <!-------------------------------------------------------Link de CSS de Bootstrap------------------------------------------------------------------>
+      <link rel="stylesheet" href="cssBootstrap/bootstrap.min.css">
+      <!-------------------------------------------------------Link de CSS para estilos Globales--------------------------------------------------------->
+      <link rel="stylesheet" href="css/global.css">
+      <!-------------------------------------------------------Link de CSS para las categorias de plantas------------------------------------------------>
+      <link rel="stylesheet" href="css/categorias.css">
+      <!-------------------------------------------------------Favicon----------------------------------------------------------------------------------->
+      <link rel="shortcut icon" href="images//iconos/favicon.png" type="image/x-icon">
+    <title>Arboles</title>
+</head>
+<body>
+     <!--------------------------------------------------------Cabecera de la Pagina-------------------------------------------------------------------->
+     <header class="cabecera">
+        <!----------------------------------------------------Navbar de Boostrap----------------------------------------------------------------------->
+        <nav class="navbar navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid" id="contenedorNav">
+                <a class="nav-link active" aria-current="page" href="index.html">
+                    <img src="images/logo.png" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    El Eden
+                </a>
+                <!--------------------------------------------Boton para el responsive----------------------------------------------------------------->
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <!--------------------------------------------Cabecera de la Pagina-------------------------------------------------------------------->
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link active" href="plantas.html">Plantas</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Arboles</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Huerta</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Flores</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div id="listaPlantas" style="padding: 5em;"></div>
+    <script src="js/arbolesAPI.js"></script>
+</body>
+</html>
