@@ -1,12 +1,12 @@
 package com.consultorio.dramado.usuarios;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.nio.file.Path;
 import java.util.List;
+import java.util.Objects;
 
 @RestController
 @RequestMapping(path="api/V1/usuarios")
@@ -19,7 +19,20 @@ public class UsuariosController {
     }
 
     @GetMapping
-    public List<Usuarios> getUsuarios(){
+    public List<Usuarios> getUsuarios() {
         return usuariosService.getUsuarios();
+    }
+
+    @PostMapping
+    public ResponseEntity<Object> cearUsuario(@RequestBody Usuarios usuario) {
+        return this.usuariosService.newUsuario(usuario);
+    }
+    @PutMapping
+    public ResponseEntity<Object> actualizarUsuario(@RequestBody Usuarios usuario) {
+        return this.usuariosService.newUsuario(usuario);
+    }
+    @DeleteMapping(path="{usuarioId}")
+    public  ResponseEntity<Object> eliminarUsuario(@PathVariable("usuarioId")Long id) {
+        return this.usuariosService.deleteUsuario(id);
     }
 }

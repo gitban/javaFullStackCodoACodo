@@ -10,18 +10,27 @@ import java.util.Date;
 public class Usuarios {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    public Long id;
-    public String nombre;
-    public String apellido;
-    public String email;
-    public String telefono;
-    public String direccion;
-    public Integer rol_id;
-    public Date created_at;
+    private Long id;
+    private String nombre;
+    private String apellido;
+    @Column(unique=true)
+    private String email;
+    private String telefono;
+    private String direccion;
+    private Integer rol_id;
+    private Date created_at;
 
     public Usuarios() {
     }
-
+    public Usuarios(Long id, String nombre, String apellido, String email, String telefono, String direccion, Integer rol_id) {
+        this.id = id;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.email = email;
+        this.telefono = telefono;
+        this.direccion = direccion;
+        this.rol_id = rol_id;
+    }
     public Usuarios(String nombre, String apellido, String email, String telefono, String direccion, Integer rol_id) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -29,6 +38,14 @@ public class Usuarios {
         this.telefono = telefono;
         this.direccion = direccion;
         this.rol_id = rol_id;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
