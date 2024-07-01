@@ -14,29 +14,29 @@ public class Usuarios {
     private String nombre;
     private String apellido;
     @Column(unique=true)
-    private String email;
+    private Long dni;
     private String telefono;
-    private String direccion;
+    private Integer os_id;
     private Integer rol_id;
     private Date created_at;
 
     public Usuarios() {
     }
-    public Usuarios(Long id, String nombre, String apellido, String email, String telefono, String direccion, Integer rol_id) {
+    public Usuarios(Long id, String nombre, String apellido, Long dni, String telefono, Integer os_id, Integer rol_id) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
-        this.email = email;
+        this.dni = dni;
         this.telefono = telefono;
-        this.direccion = direccion;
+        this.os_id = os_id;
         this.rol_id = rol_id;
     }
-    public Usuarios(String nombre, String apellido, String email, String telefono, String direccion, Integer rol_id) {
+    public Usuarios(String nombre, String apellido, Long dni, String telefono, Integer os_id, Integer rol_id) {
         this.nombre = nombre;
         this.apellido = apellido;
-        this.email = email;
+        this.dni = dni;
         this.telefono = telefono;
-        this.direccion = direccion;
+        this.os_id = os_id;
         this.rol_id = rol_id;
     }
 
@@ -64,12 +64,12 @@ public class Usuarios {
         this.apellido = apellido;
     }
 
-    public String getEmail() {
-        return email;
+    public Long getDni() {
+        return dni;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setDni(Long dni) {
+        this.dni = dni;
     }
 
     public String getTelefono() {
@@ -80,12 +80,12 @@ public class Usuarios {
         this.telefono = telefono;
     }
 
-    public String getDireccion() {
-        return direccion;
+    public Integer getOs_Id() {
+        return os_id;
     }
 
-    public void setDireccion(String direccion) {
-        this.direccion = direccion;
+    public void setOs_Id(Integer os_id) {
+        this.os_id = os_id;
     }
 
     public Integer getRol_id() {

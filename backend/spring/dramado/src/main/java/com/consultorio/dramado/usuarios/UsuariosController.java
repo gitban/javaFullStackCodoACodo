@@ -8,6 +8,7 @@ import java.nio.file.Path;
 import java.util.List;
 import java.util.Objects;
 
+@CrossOrigin
 @RestController
 @RequestMapping(path="api/V1/usuarios")
 public class UsuariosController {
@@ -21,6 +22,10 @@ public class UsuariosController {
     @GetMapping
     public List<Usuarios> getUsuarios() {
         return usuariosService.getUsuarios();
+    }
+    @GetMapping(path="{usuarioDni}")
+    public Object getUsuario(@PathVariable("usuarioDni")Long dni) {
+        return this.usuariosService.getUsuario(dni);
     }
 
     @PostMapping

@@ -26,14 +26,18 @@ public class UsuariosService {
         return this.usuariosRepository.findAll();
     }
 
+    public Object getUsuario(Long dni) {
+        return this.usuariosRepository.findByDni(dni);
+    }
+
     public ResponseEntity<Object> newUsuario(Usuarios usuario) {
 
-        Optional<Usuarios> resp = usuariosRepository.findByEmail(usuario.getEmail());
+        Optional<Usuarios> resp = usuariosRepository.findByDni(usuario.getDni());
         datos = new HashMap<>();
 
         if (resp.isPresent() && usuario.getId()==null) {
             datos.put("error", true);
-            datos.put("message","El email ya existe");
+            datos.put("message","El DNI de usuario ya existe");
             return new ResponseEntity<>(
                     datos,
                     HttpStatus.CONFLICT
