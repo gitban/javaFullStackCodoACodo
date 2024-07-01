@@ -4,7 +4,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import java.util.HashMap;
 import java.util.List;
@@ -15,24 +14,24 @@ public class UsuariosService {
 
     HashMap<String,Object> datos;
 
-    private final UsuariosRepository usuariosRepository;
+    private final UsuariosRepository usuarioRepository;
 
     @Autowired
-    public UsuariosService(UsuariosRepository usuariosRepository) {
-        this.usuariosRepository = usuariosRepository;
+    public UsuariosService(UsuariosRepository usuarioRepository) {
+        this.usuarioRepository = usuarioRepository;
     }
 
     public List<Usuarios> getUsuarios() {
-        return this.usuariosRepository.findAll();
+        return this.usuarioRepository.findAll();
     }
 
     public Object getUsuario(Long dni) {
-        return this.usuariosRepository.findByDni(dni);
+        return this.usuarioRepository.findByDni(dni);
     }
 
     public ResponseEntity<Object> newUsuario(Usuarios usuario) {
 
-        Optional<Usuarios> resp = usuariosRepository.findByDni(usuario.getDni());
+        Optional<Usuarios> resp = usuarioRepository.findByDni(usuario.getDni());
         datos = new HashMap<>();
 
         if (resp.isPresent() && usuario.getId()==null) {
@@ -47,7 +46,7 @@ public class UsuariosService {
         if(usuario.getId()!=null){
             datos.put("message", "El usuario se ha actualizado correctamente");
         }
-        usuariosRepository.save(usuario);
+        usuarioRepository.save(usuario);
         datos.put("data",usuario);
         return new ResponseEntity<>(
                 datos,
@@ -56,7 +55,7 @@ public class UsuariosService {
     }
 
     public ResponseEntity<Object> deleteUsuario(Long id) {
-        boolean existe = this.usuariosRepository.existsById(id);
+        boolean existe = this.usuarioRepository.existsById(id);
         datos = new HashMap<>();
         if(!existe) {
             datos.put("error", true);
@@ -66,7 +65,7 @@ public class UsuariosService {
                     HttpStatus.CONFLICT
             );
         }
-        usuariosRepository.deleteById(id);
+        usuarioRepository.deleteById(id);
         datos.put("message","El usuario fue eliminado correctamente");
         return new ResponseEntity<>(
                 datos,
