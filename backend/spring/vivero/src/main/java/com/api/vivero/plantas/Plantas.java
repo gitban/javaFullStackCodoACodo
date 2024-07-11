@@ -13,24 +13,69 @@ public class Plantas {
     private String nombre;
     private String especie;
     private String descripcion;
-    private Double precio;
+    private String imagen;
+    private Integer sol;
+    private Integer agua;
 
-    public Plantas() {
-    }
-
-    public Plantas(Integer id, String nombre, String especie, String descripcion, Double precio) {
+    public Plantas(Integer id, String nombre, String especie, String descripcion, String imagen, Integer sol, Integer agua, Integer temperatura, Double precio) {
         this.id = id;
         this.nombre = nombre;
         this.especie = especie;
         this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.sol = sol;
+        this.agua = agua;
+        this.temperatura = temperatura;
         this.precio = precio;
     }
 
-    public Plantas(String nombre, String especie, String descripcion, Double precio) {
+    public Plantas(String nombre, String especie, String descripcion, String imagen, Integer sol, Integer agua, Integer temperatura, Double precio) {
         this.nombre = nombre;
         this.especie = especie;
         this.descripcion = descripcion;
+        this.imagen = imagen;
+        this.sol = sol;
+        this.agua = agua;
+        this.temperatura = temperatura;
         this.precio = precio;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
+    }
+
+    public Integer getSol() {
+        return sol;
+    }
+
+    public void setSol(Integer sol) {
+        this.sol = sol;
+    }
+
+    public Integer getAgua() {
+        return agua;
+    }
+
+    public void setAgua(Integer agua) {
+        this.agua = agua;
+    }
+
+    public Integer getTemperatura() {
+        return temperatura;
+    }
+
+    public void setTemperatura(Integer temperatura) {
+        this.temperatura = temperatura;
+    }
+
+    private Integer temperatura;
+    private Double precio;
+
+    public Plantas() {
     }
 
     public Integer getId() {
