@@ -29,6 +29,29 @@ public class UsuariosService {
         return this.usuarioRepository.findByDni(dni);
     }
 
+    public ResponseEntity<Object> userLogin(LoginForm loginForm)  {
+
+        Optional<Usuarios> resp = usuarioRepository.findByDni(loginForm.getDni());
+        datos = new HashMap<>();
+        System.out.println(loginForm.getDni()+"  --  "+ loginForm.getClave());
+        if (resp.isPresent() && loginForm.getDni()!=null) {
+            if((resp.get().getClave()).equals(loginForm.getClave())) {
+                System.out.println("La clave coincide");
+                datos.put("message", "ha ingresado con éxito al sistema");
+                return new ResponseEntity<Object>(
+                        resp,
+                        HttpStatus.OK
+                );
+            }
+        }
+        datos.put("error", true);
+        datos.put("message","dni o contraseña incorrectos");
+        return new ResponseEntity<>(
+            datos,
+            HttpStatus.FORBIDDEN
+        );
+    }
+
     public ResponseEntity<Object> newUsuario(Usuarios usuario) {
 
         Optional<Usuarios> resp = usuarioRepository.findByDni(usuario.getDni());

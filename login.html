@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-------------------------------------------------------Link de CSS de Bootstrap------------------------------------------------------------------>
+    <link rel="stylesheet" href="cssBootstrap/bootstrap.min.css">
+    <!-------------------------------------------------------Link de CSS para estilos Globales--------------------------------------------------------->
+    <link rel="stylesheet" href="css/global.css">
+    <!-------------------------------------------------------Link de CSS para las categorias de plantas------------------------------------------------>
+    <link rel="stylesheet" href="css/categorias.css">
+    <!-------------------------------------------------------Link de CSS para formulario------------------------------------------------>
+    <link rel="stylesheet" href="css/form.css">
+    <!-------------------------------------------------------Favicon----------------------------------------------------------------------------------->
+    <link rel="shortcut icon" href="images//iconos/favicon.png" type="image/x-icon">
+    <title>Vivero - Login</title>
+</head>
+
+<body>
+    <header id="cabecera"></header>
+
+    
+    <main>
+        <div class="container">
+            <form method="post" class="contenido" id="login">
+                
+                <h2 id="titulo_formulario">Ingresar al sistema:</h2>
+                <!--Datos del paciente-->
+                <input class="ingreso" type="text" id="dni" placeholder="DNI" /> <br />
+
+                <input class="ingreso" type="password" id="clave" placeholder="contraseña" />
+                <br />
+
+                <button type="submit" id="boton_operacion">Ingresar</button>
+                <!--Boton envío de formulario-->
+                <button type="reset" id="boton_operacion" onclick="location.href = 'index.html';">
+                    Cancelar
+                </button>
+                <!--con type=reset espero hacer cancelación de formulario-->
+                <a href="registrar.html">No tiene Usuario? REGISTRESE</a>
+            </form>
+        </div>
+    </main>
+    <script src="js/header.js"></script>
+    <script src="js/login.js"></script>
+</body>
+
+</html>

@@ -18,11 +18,12 @@ public class Usuarios {
     private String telefono;
     private Integer os_id;
     private Integer rol_id;
+    private String clave;
     private Date created_at;
 
     public Usuarios() {
     }
-    public Usuarios(Long id, String nombre, String apellido, Long dni, String telefono, Integer os_id, Integer rol_id) {
+    public Usuarios(Long id, String nombre, String apellido, Long dni, String telefono, Integer os_id, Integer rol_id, String clave) {
         this.id = id;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -30,14 +31,16 @@ public class Usuarios {
         this.telefono = telefono;
         this.os_id = os_id;
         this.rol_id = rol_id;
+        this.clave = clave;
     }
-    public Usuarios(String nombre, String apellido, Long dni, String telefono, Integer os_id, Integer rol_id) {
+    public Usuarios(String nombre, String apellido, Long dni, String telefono, Integer os_id, Integer rol_id, String clave) {
         this.nombre = nombre;
         this.apellido = apellido;
         this.dni = dni;
         this.telefono = telefono;
         this.os_id = os_id;
         this.rol_id = rol_id;
+        this.clave = clave;
     }
 
     public Long getId() {
@@ -94,5 +97,13 @@ public class Usuarios {
 
     public void setRol_id(Integer rol_id) {
         this.rol_id = rol_id;
+    }
+
+    public String getClave() {
+        return clave;
+    }
+
+    public void setClave(String clave) {
+        this.clave = clave;
     }
 }

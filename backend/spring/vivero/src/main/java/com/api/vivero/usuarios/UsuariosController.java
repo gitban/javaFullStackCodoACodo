@@ -21,9 +21,15 @@ public class UsuariosController {
     public List<Usuarios> getUsuarios() {
         return usuariosService.getUsuarios();
     }
+
     @GetMapping(path="{usuarioDni}")
     public Object getUsuario(@PathVariable("usuarioDni")Long dni) {
         return this.usuariosService.getUsuario(dni);
+    }
+
+    @PostMapping(path="/login")
+    public Object userLogin(@RequestBody LoginForm loginForm) {
+        return this.usuariosService.userLogin(loginForm);
     }
 
     @PostMapping
