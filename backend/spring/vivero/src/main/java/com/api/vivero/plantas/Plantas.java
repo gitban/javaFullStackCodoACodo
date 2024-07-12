@@ -16,6 +16,8 @@ public class Plantas {
     private String imagen;
     private Integer sol;
     private Integer agua;
+    private Integer temperatura;
+    private Double  precio;
 
     public Plantas(Integer id, String nombre, String especie, String descripcion, String imagen, Integer sol, Integer agua, Integer temperatura, Double precio) {
         this.id = id;
@@ -71,9 +73,6 @@ public class Plantas {
     public void setTemperatura(Integer temperatura) {
         this.temperatura = temperatura;
     }
-
-    private Integer temperatura;
-    private Double precio;
 
     public Plantas() {
     }
